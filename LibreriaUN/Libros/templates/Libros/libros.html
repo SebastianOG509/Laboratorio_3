@@ -1,0 +1,22 @@
+
+{% extends "Libreria/base.html" %}
+
+{% load static %}
+
+{% block content %}
+{% if libros|length == 0 %}
+  <h2>No hay coincidencias</h2>
+{% else %}
+  {% for libro in libros %}
+
+  <div><p>
+
+    <h2>{{libro.nombre}}</h2>
+    <p>{{libro.genero}},{{libro.autor}}</p>
+
+  </p></div>
+
+  {% endfor %}
+{% endif %}
+
+{% endblock  %}

@@ -1,0 +1,21 @@
+{% extends "Libreria/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<p>{{usuario.username}}  </p>
+
+{% if usuario.email %}
+  <p>{{usuario.email}} </p>
+{% else %}
+  <p>no tiene correo</p>
+{% endif %}
+
+{% if usuario.last_name %}
+  <p>{{usuario.last_name}} </p>
+{% else %}
+  <p>no tiene apellido</p>
+{% endif %}
+
+{% endblock  %}

@@ -38,18 +38,32 @@
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Libros' %}">Libros</a>
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Libros' %}?prd=">Libros</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Usuarios' %}">Usuarios</a>
           </li>
           <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto' %}">Contacto</a>
-          </li>       
+          </li> 
+          <li>
+            <form action="/libros/" method="get">
+              <input type="text" name="prd">
+              <input type="submit" value="Buscar">
+            </form>
+          </li>      
         </ul>
       </div>
     </div>
   </nav>
+
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
 
     <!--Contenido que cambia xd-->
     {% block content %}
