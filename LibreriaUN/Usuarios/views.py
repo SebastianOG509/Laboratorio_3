@@ -21,7 +21,7 @@ def Register(request):
       username = form.cleaned_data['username']
       messages.success(request, f'usuario {username} creado')
       login(request,usuario)
-      return redirect('../../')
+      return redirect('/')
   else:
     form = UserRegisterForm()
 

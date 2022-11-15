@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
+
 class UserRegisterForm(UserCreationForm):
   email = forms.EmailField()
   #birth = forms.DateField(label="fecha de nacimiento", widget=forms.DateInput)
@@ -14,3 +15,4 @@ class UserRegisterForm(UserCreationForm):
     model = User
     fields = ['username', 'email', 'password1', 'password2']
     help_texts = {k: "" for k in fields}
+
