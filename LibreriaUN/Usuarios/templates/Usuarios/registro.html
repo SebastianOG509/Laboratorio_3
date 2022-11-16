@@ -2,8 +2,8 @@
 
 {% block content %}
 
-<p style ="color: white; text-align: center;" > Llena el formulario con tu informacion </p>
-<form style ="color: white; text-align: center;" class="form" method="post">
+<p style ="text-align: center;background-color: rgb(36, 36, 36); color: white;" > Llena el formulario con tu informacion </p>
+<form style ="text-align: center;background-color: rgb(36, 36, 36); color: white;" class="form" method="post">
   {% csrf_token %}
   {{ form.as_p}}
 
