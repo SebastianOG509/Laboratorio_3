@@ -10,7 +10,7 @@ def Usuarios(request):
   if(request.user.is_authenticated):
     return render(request,'Usuarios/usuario.html',{"usuario":usuario})
   else:
-    messages.info(request,"Primero registrate")
+    #messages.info(request,"Primero registrate")
     return redirect('register')
 
 def Register(request):

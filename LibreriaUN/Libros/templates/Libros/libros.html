@@ -5,14 +5,16 @@
 
 {% block content %}
 {% if libros|length == 0 %}
-  <h2>No hay coincidencias</h2>
+  <p></p>
+  <h2 style = "color: white; text-align: center;">No hay coincidencias</h2>
+  <p></p>
 {% else %}
   {% for libro in libros %}
 
   <div><p>
 
-    <h2>{{libro.nombre}}</h2>
-    <p>{{libro.genero}},{{libro.autor}}</p>
+    <h2 style ="color: white; text-align: center;">{{libro.nombre}}</h2>
+    <p style ="color: white; text-align: center;">{{libro.genero}},{{libro.autor}}</p>
 
   </p></div>
 

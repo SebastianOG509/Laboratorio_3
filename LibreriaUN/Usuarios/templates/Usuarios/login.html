@@ -2,12 +2,23 @@
 
 {% block content %}
 
-<form class="form" method="post">
+<p></p>
+
+<form style ="color: white; text-align: center;" class="form" method="post">
   {% csrf_token %}
   {{ form.as_p}}
 
   <button type="submit" id="submit">Login</button>
 
 </form> 
+
+<p style = "text-align: center; color: white;">
+  Si aun no tienes una cuenta !REGISTRATE!
+</p>
+<p style = "text-align: center;">
+  <a href="{% url 'Registro' %}">
+    <button >Registrate</button>
+  </a>
+</p>
 
 {% endblock  %}

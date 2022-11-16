@@ -4,18 +4,18 @@
 
 {% block content %}
 
-<p>{{usuario.username}}  </p>
+<p style ="color: white; text-align: center;">{{usuario.username}}  </p>
 
 {% if usuario.email %}
-  <p>{{usuario.email}} </p>
+  <p style ="color: white; text-align: center;">{{usuario.email}} </p>
 {% else %}
-  <p>no tiene correo</p>
+  <p style ="color: white; text-align: center;">no tiene correo</p>
 {% endif %}
 
 {% if usuario.last_name %}
-  <p>{{usuario.last_name}} </p>
+  <p style ="color: white; text-align: center;">{{usuario.last_name}} </p>
 {% else %}
-  <p>no tiene apellido</p>
+  <p style ="color: white; text-align: center;">no tiene apellido</p>
 {% endif %}
 
 {% endblock  %}

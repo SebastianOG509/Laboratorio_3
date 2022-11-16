@@ -229,7 +229,8 @@ p {
 }
 
 .footer {
-   background-color: rgba(24, 64, 8, 0.8);
+  height: 4rem;
+  background-color: rgba(24, 64, 8, 0.8);
 }
 
 

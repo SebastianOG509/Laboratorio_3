@@ -2,12 +2,10 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
-
+#birth = forms.DateField(label="fecha de nacimiento", widget=forms.DateInput)
 class UserRegisterForm(UserCreationForm):
   email = forms.EmailField()
-  #birth = forms.DateField(label="fecha de nacimiento", widget=forms.DateInput)
-  password1 = forms.CharField(label="contraseña", widget=forms.PasswordInput)
+  password1 = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
   password2 = forms.CharField(
       label="Confirmar contraseña", widget=forms.PasswordInput)
 
