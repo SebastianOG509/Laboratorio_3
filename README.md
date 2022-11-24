@@ -1,2 +1,2 @@
-# Laboratorio_3
-LABORATORIO 3 - CONTROL DE VERSIONES Y REPOSITORIOS
+# Proyecto Libreria Virtual
+
