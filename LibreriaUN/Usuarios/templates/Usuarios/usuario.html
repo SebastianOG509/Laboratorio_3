@@ -4,18 +4,13 @@
 
 {% block content %}
 
-<p style ="color: white; text-align: center;">{{usuario.username}}  </p>
+<p style ="background-color: rgb(36, 36, 36);;color: white; text-align: center;">{{usuario.username}}  </p>
 
 {% if usuario.email %}
-  <p style ="color: white; text-align: center;">{{usuario.email}} </p>
+  <p style ="background-color: rgb(36, 36, 36);color: white; text-align: center;">{{usuario.email}} </p>
 {% else %}
-  <p style ="color: white; text-align: center;">no tiene correo</p>
+  <p style ="background-color: rgb(36, 36, 36);color: white; text-align: center;">no tiene correo</p>
 {% endif %}
 
-{% if usuario.last_name %}
-  <p style ="color: white; text-align: center;">{{usuario.last_name}} </p>
-{% else %}
-  <p style ="color: white; text-align: center;">no tiene apellido</p>
-{% endif %}
 
 {% endblock  %}
