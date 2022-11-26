@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import login,logout
-from .models import Usuario
+from .models import User,Empleado,Cliente
 from .forms import UserRegisterForm
-
+from django.dispatch import Signal
 
 def Usuarios(request):
   usuario = request.user
@@ -18,6 +18,10 @@ def Register(request):
     form = UserRegisterForm(request.POST)
     if form.is_valid():
       usuario = form.save()
+      if(form.cleaned_data['tipo']=="E"):
+        Empleado.objects.create(usuario=usuario)
+      elif(form.cleaned_data['tipo'] == "C"):
+        Cliente.objects.create(usuario=usuario)
       username = form.cleaned_data['username']
       messages.success(request, f'usuario {username} creado')
       login(request,usuario)
