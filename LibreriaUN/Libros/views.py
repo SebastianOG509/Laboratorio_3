@@ -25,3 +25,7 @@ def CrearLibro(request):
   else:
     form = CreateBookForm()
   return render(request, "Libros/crear.html", {"form": form})
+
+def MostrarLibro(request,libro_id):
+  libro = Libro.objects.get(pk=libro_id)
+  return render(request, "Libros/libro.html",{"libro":libro})
