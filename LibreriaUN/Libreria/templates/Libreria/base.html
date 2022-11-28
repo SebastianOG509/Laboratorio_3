@@ -1,112 +1,153 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
+   <head>
 
-<head>
+      {% load static %}
 
-    {% load static %}
-
-    <!-- Bootstrap -->
-    <link href="{% static 'Libreria/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-     <!-- Fonts -->
-    
-     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
-     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-     
-
-    <!-- Styles -->
-    <link href="{% static 'Libreria/css/gestion.css' %}" rel="stylesheet">
-</head>
-
-<body>
-
-    <h1 class="site-heading text-center text-white d-none d-lg-block">
-      
-        <span class="site-heading-lower">Libreria UN</span>
-      </h1>
-
-
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'Home' %}">Libreria</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Libros' %}?prd=">Libros</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Usuarios' %}">Usuarios</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto' %}">Contacto</a>
-          </li> 
-          <li>
-            <form action="/libros/" method="get">
-              <input type="text" name="prd">
-              <input type="submit" value="Buscar">
-            </form>
-          </li>      
-        </ul>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Libreria UN</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'Libreria/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'Libreria/css/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'Libreria/css/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'Libreria/images/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="{% static 'Libreria/css/jquery.mCustomScrollbar.min.css' %}">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="{% static 'Libreria/images/loading.gif' %}" alt="#" /></div>
       </div>
-    </div>
-  </nav>
+      <!-- end loader -->
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="{% url 'Home' %}"><img src="{% static 'Libreria/images/libro.png' %}" width="500" weigt="500" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarsExample04">
+                           <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                 <a class="nav-link" href="{% url 'Home' %}"> Inicio  </a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'Libros' %}?prd=">Libros</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'Nosotros' %}">Sobre Nosotros </a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'Contacto' %}">Contacto </a>
+                              </li>
+                                 <form action="/libros/" method="get" class="bottom_form">
+                                 <input type="text" name="prd">
+                                 <input type="submit" value="Buscar">
+                               </form> 
+                                   
+                              </li>
+                              <li class=" d_none get_btn">
+                                 <a  href="{% url 'Usuarios' %}">Usuarios</a>
+                              </li>
+                           </ul>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
 
-  {% if messages %}
-  <ul class="messages">
-      {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-  </ul>
-  {% endif %}
 
-    <!--Contenido que cambia xd-->
-    {% block content %}
+{% block content %}
 
-    {% endblock %}
-
-    <!-- Footer -->
-    <footer class="footer text-faded text-center py-5">
-      <div class="container">
-        <p class="m-0">
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	    </p>
-        <p class="m-0 mbt">
-        	<a href="sample.html" class="link">Política de privacidad</a> ·
-        	<a href="sample.html" class="link">Aviso legal</a> ·
-        	<a href="sample.html" class="link">Cookies</a>
-		</p>
-        <p class="m-0 mbt1">&copy; Libreria 2022</p>
-      </div>
-	</footer>
-
-    <!-- Bootstrap -->
-    <script src="{% static '/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static '/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-</body>
+{% endblock %}
 
 
+      <!--  footer -->
+      <footer id="contact" >
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="titlepage">
+                        <h2>Contáctanos</h2>
+                     </div>
+                  </div>
+                  <div class="col-md-12">
+
+                  </div>
+                  <div class="col-md-3 border_right">
+                     <ul class="location_icon">
+                        <li><a href="https://www.google.com/search?q=maps+bogota&rlz=1C1ALOY_esCO983CO983&sxsrf=ALiCzsbw3H_zSGBwn_53lNOr7rOL_uYu4g%3A1669611390354&ei=fj-EY9mmFc-RwbkPr6eJGA&ved=0ahUKEwjZ3daOi9D7AhXPSDABHa9TAgMQ4dUDCA8&uact=5&oq=maps+bogota&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIICAAQgAQQsQMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BAguECc6BAgjECc6BAgAEEM6CAguELEDEIMBOggIABCxAxCDAToHCAAQsQMQQzoKCC4QxwEQ0QMQQzoFCC4QgARKBAhBGABKBAhGGABQAFjEFGDgFmgAcAF4AIABgAGIAY8JkgEDNC43mAEAoAEBwAEB&sclient=gws-wiz-serp"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Bogotá </li>
+                        <li><a href="https://wa.me/573118682416"><i class="fa fa-volume-control-phone" aria-hidden="true"></i></a> +57 3118682416</li>
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>@unal.edu.co</li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3">
+                     <h3>Menus</h3>
+                     <ul class="link">
+<li><a href="{% url 'Home' %}">Home</a></li>                             
+<li><a href="{% url 'Libros' %}?prd=">Libros</a></li>                                                     
+<li><a href="{% url 'Contacto' %}">Contacto</a></li>                             
+<li><a href="{% url 'Nosotros' %}">Sobre Nosotros</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>Copyright 2022 All Right Reserved By Libreía UN</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="{% static 'Libreria/js/jquery.min.js' %}"></script>
+      <script src="{% static 'Libreria/js/popper.min.js' %}"></script>
+      <script src="{% static 'Libreria/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'Libreria/js/jquery-3.0.0.min.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'Libreria/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'Libreria/js/custom.js' %}"></script>
+   </body>
 </html>
+

@@ -8,4 +8,8 @@ def home(request):
 
 def contacto(request):
 
-    return render(request, "Libreria/contacto.html")
+    return render(request, "Libreria/contact.html")
+
+def sobre_nosotros(request):
+
+    return render(request, "Libreria/nosotros.html")
