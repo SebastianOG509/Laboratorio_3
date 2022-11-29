@@ -1,3 +1,5 @@
+from distutils.command.upload import upload
+from email.policy import default
 from django.db import models
 import datetime
 
@@ -30,6 +32,9 @@ class Libro(models.Model):
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     autor = models.CharField(max_length=50)
     año = models.IntegerField(choices=AÑOS)
+    descripcion = models.CharField(max_length=1000)
+    likes = models.IntegerField()
+    imagen = models.ImageField(default="home.jpg")
 
     class Meta:
         verbose_name = "libro"

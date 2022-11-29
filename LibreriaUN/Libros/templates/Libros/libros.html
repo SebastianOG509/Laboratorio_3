@@ -6,16 +6,16 @@
 {% block content %}
 {% if libros|length == 0 %}
   <p></p>
-  <h2 style = "color: white; text-align: center;">No hay coincidencias</h2>
+  <h2 style = " text-align: center;">No hay coincidencias</h2>
   <p></p>
 {% else %}
   {% for libro in libros %}
 
   <div><p>
 
-    <h2 style ="color: white; text-align: center;">{{libro.nombre}}</h2>
-    <a class="nav-link text-uppercase text-expanded" style="text-align: center" href="{% url 'Producto' libro_id=libro.id %}">Ir a libro</a>
-    <p style ="color: white; text-align: center;">{{libro.genero}},{{libro.autor}}</p>
+    <h2 style =" text-align: center;">{{libro.nombre}}</h2>
+    <p style =" text-align: center;">{{libro.genero}}, {{libro.autor}}</p>
+    <a class="nav-link text-uppercase text-expanded" style="text-align: center" href="{% url 'Producto' libro_id=libro.id %}">Ver Libro</a>
 
   </p></div>
 
