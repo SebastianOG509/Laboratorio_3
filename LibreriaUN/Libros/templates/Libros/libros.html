@@ -9,6 +9,7 @@
   <h2 style = " text-align: center;">No hay coincidencias</h2>
   <p></p>
 {% else %}
+
   {% for libro in libros %}
 
   <div><p>
@@ -16,7 +17,9 @@
     <h2 style =" text-align: center;">{{libro.nombre}}</h2>
     <p style =" text-align: center;">{{libro.genero}}, {{libro.autor}}</p>
     <a class="nav-link text-uppercase text-expanded" style="text-align: center" href="{% url 'Producto' libro_id=libro.id %}">Ver Libro</a>
-
+    {% if 'Usuarios.Permiso_Empleado' in perms %}
+    <a class="nav-link text-uppercase text-expanded" style="text-align: center" href="{% url 'Actualizar' libro_id=libro.id %}">Editar Libro</a>
+    {% endif %}
   </p></div>
 
   {% endfor %}
