@@ -16,10 +16,21 @@
     <p style="text-align: center;"><img src = '{{libro.imagen.url}}' alt="#" width="200" height="300" ></p>
     <h2 style =" text-align: center;">{{libro.nombre}}</h2>
     <p style =" text-align: center;">{{libro.genero}}, {{libro.autor}}</p>
-    <a class="nav-link text-uppercase text-expanded" style="text-align: center" href="{% url 'Producto' libro_id=libro.id %}">Ver Libro</a>
-    {% if 'Usuarios.Permiso_Empleado' in perms %}
-    <a class="nav-link text-uppercase text-expanded" style="text-align: center" href="{% url 'Actualizar' libro_id=libro.id %}">Editar Libro</a>
-    {% endif %}
+    <p><br></p>
+    <div style="text-align: center;">  
+      <li class=" d_none get_btn text-align: center">
+        <a  href="{% url 'Producto' libro_id=libro.id %}">Ver Libro</a>
+      </li>
+        <p><br></p>
+      {% if 'Usuarios.Permiso_Empleado' in perms %}
+      <li class=" d_none get_btn">
+        <a  href="{% url 'Actualizar' libro_id=libro.id %}">Editar Libro</a>
+      </li>
+      {% endif %}
+    </div>
+    <p><br></p>
+    <p><br></p>
+    <p><br></p>
   </p></div>
 
   {% endfor %}
