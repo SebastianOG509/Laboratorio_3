@@ -9,7 +9,15 @@
   <h2 style = " text-align: center;">No hay coincidencias</h2>
   <p></p>
 {% else %}
-
+<p><br></p>
+{% if 'Usuarios.Permiso_Empleado' in perms %}
+<div style="text-align: center;">
+<li class=" d_none get_btn">
+  <a  href="{% url 'Crear' %}">Añadir nuevo libro</a>
+</li>
+</div>
+{% endif %}
+<p><br></p>
   {% for libro in libros %}
 
   <div><p>
@@ -25,6 +33,10 @@
       {% if 'Usuarios.Permiso_Empleado' in perms %}
       <li class=" d_none get_btn">
         <a  href="{% url 'Actualizar' libro_id=libro.id %}">Editar Libro</a>
+      </li>
+      <p><br></p>
+      <li class=" d_none get_btn">
+        <a  href="{% url 'Prestamo' %}">Realizar Prestamo</a>
       </li>
       {% endif %}
     </div>
