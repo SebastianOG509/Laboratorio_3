@@ -1,0 +1,12 @@
+{% extends "Libreria/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% for prestamo in prestamos %}
+  <a>{{prestamo.estado}}</a>
+  <a>{{prestamo.libro}}</a>
+{% endfor %}
+
+{% endblock  %}
