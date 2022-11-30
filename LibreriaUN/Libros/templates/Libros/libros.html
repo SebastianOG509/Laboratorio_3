@@ -15,6 +15,10 @@
 <li class=" d_none get_btn">
   <a  href="{% url 'Crear' %}">Añadir nuevo libro</a>
 </li>
+<p><br></p>
+<li class=" d_none get_btn">
+  <a  href="{% url 'Prestamo' %}">Realizar Prestamo</a>
+</li>
 </div>
 {% endif %}
 <p><br></p>
@@ -35,9 +39,6 @@
         <a  href="{% url 'Actualizar' libro_id=libro.id %}">Editar Libro</a>
       </li>
       <p><br></p>
-      <li class=" d_none get_btn">
-        <a  href="{% url 'Prestamo' %}">Realizar Prestamo</a>
-      </li>
       {% endif %}
     </div>
     <p><br></p>
