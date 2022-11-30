@@ -3,7 +3,82 @@
 {% load static %}
 
 {% block content %}
-
+<div class="about">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12">
+             <div id="myCarousel" class="carousel slide about_Carousel " data-ride="carousel">
+                <ol class="carousel-indicators">
+                   <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                   <li data-target="#myCarousel" data-slide-to="1"></li>
+                   <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                   <div class="carousel-item active">
+                      <div class="container">
+                         <div class="carousel-caption ">
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="test_box">
+                                     <i><img src="{% static 'Libreria/images/jonathan-modified.png' %}" alt="#"/></i>
+                                     <p><br></p>
+                                     <h4>Jonathan David Moncaleano Angel</h4>
+                                     <p><br></p>
+                                     <h1>Universidad Nacional de Colombia<br> Ingenieria de Sistemas Y Computacion <br> jomoncaleanoa@unal.edu.co <br> Bogota D.C. </h1>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="carousel-item">
+                      <div class="container">
+                         <div class="carousel-caption">
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="test_box">
+                                     <i><img src="{% static 'Libreria/images/julian-modified.png' %}" alt="#"/></i>
+                                     <p><br></p>
+                                     <h4>Julian Andres Vaquiro Moreno</h4>
+                                     <p><br></p>
+                                     <h1>Universidad Nacional de Colombia<br> Ingenieria de Sistemas Y Computacion <br> jvaquiro@unal.edu.co <br> Bogota D.C. </h1>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <div class="carousel-item">
+                      <div class="container">
+                         <div class="carousel-caption">
+                            <div class="row">
+                               <div class="col-md-12">
+                                  <div class="test_box">
+                                     <i><img src="{% static 'Libreria/images/seortzg-modified.png' %}" alt="#"/></i>
+                                     <p><br></p>
+                                     <h4>Sebastian Ortiz Gonzalez</h4>
+                                     <p><br></p>
+                                     <h1>Universidad Nacional de Colombia<br> Ingenieria de Sistemas Y Computacion <br> seortizg@unal.edu.co <br> Bogota D.C. </h1>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+                </a>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
 <p></p>
 <p style="text-align: center">
     <img src="{% static 'Libreria/images/Logo UN.jpg' %}" alt="">
