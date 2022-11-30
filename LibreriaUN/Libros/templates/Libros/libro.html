@@ -4,7 +4,34 @@
 
 {% block content %}
 
-<h1>{{libro.nombre}} </h1>
-<h2>{{libro.autor}} </h2>
-<p>libro de genero:{{libro.genero}} </p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<div class="row">
+    <div class="col-md-12">
+       <div id="myCarousel" class="carousel slide about_Carousel " data-ride="carousel">
+             <div class="carousel-item active">
+                <div class="container">
+                   <div class="carousel-caption ">
+                      <div class="row">
+                         <div class="col-md-12">
+                            <div class="test_box">
+                               <i><img src= "{{libro.portada.url}}" alt="#"  width="200" height="300" /></i>
+                                    <p><br></p>
+                                    <h4 style="text-align:center ;">Nombre: {{libro.nombre}} </h4>
+                                    <p><br></p>
+                                    <h2>Autor: {{libro.autor}}, Género: {{libro.genero}} </h2>
+                                    <h3>Descripción: {{libro.descripcion}} </h3>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+       </div>
+    </div>
+ </div>
+ <p><br></p>
+ <p><br></p>
+ <p><br></p>
 {% endblock  %}
