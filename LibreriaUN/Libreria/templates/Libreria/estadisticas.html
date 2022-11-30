@@ -1,0 +1,24 @@
+{% extends "Libreria/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div style = "text-align: center;">
+<h1 > Estadisticas Sobre Los Usuarios</h1>
+    
+    Existen {{ usuarios }} Usuarios <br>
+    El {{ porc_empleados }}% son Empleados <br>
+    El {{ porc_clientes }}% son Clientes 
+</div>
+
+<div style = "text-align: center;">
+<h1> Los Mas Gustados</h1>
+
+{% for libro in libros %}
+    <a href="{% url 'Producto' libro_id=libro.id %}"> {{libro.nombre}} </a><br>
+{% endfor %}
+</div>
+
+{% endblock %}
+

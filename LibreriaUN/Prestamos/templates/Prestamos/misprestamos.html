@@ -3,10 +3,17 @@
 {% load static %}
 
 {% block content %}
-
+<div style = "text-align: center;">
+<h1 > Historial de Prestamos</h1>
+<h3>    
 {% for prestamo in prestamos %}
-  <a>{{prestamo.estado}}</a>
-  <a>{{prestamo.libro}}</a>
+{% if prestamo.estado == True %}
+  <a>Prestamo Vigente</a>, <a>{{prestamo.libro}}</a>, <a>{{prestamo.cliente}}</a> <br>
+{% else %}
+  <a>Prestamo No Vigente</a>, <a>{{prestamo.libro}}</a>, <a>{{prestamo.cliente}}</a> <br>
+{% endif %}
 {% endfor %}
+</h3>
+</div>
 
 {% endblock  %}

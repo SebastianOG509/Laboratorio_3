@@ -4,13 +4,14 @@
 
 {% block content %}
 
-<p style ="background-color: rgb(36, 36, 36);;color: white; text-align: center;">{{usuario.username}}  </p>
+<h1 style ="text-align: center;">{{usuario.username}} 
 
 {% if usuario.email %}
-  <p style ="background-color: rgb(36, 36, 36);color: white; text-align: center;">{{usuario.email}} </p>
+  <p style ="text-align: center;">{{usuario.email}} </p>
 {% else %}
-  <p style ="background-color: rgb(36, 36, 36);color: white; text-align: center;">no tiene correo</p>
+  <p style ="text-align: center;">no tiene correo</p>
 {% endif %}
+</h1>
 
 
 {% endblock  %}

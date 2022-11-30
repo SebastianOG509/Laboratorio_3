@@ -73,24 +73,30 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="{% url 'Contacto' %}">Contacto </a>
                               </li>
-                              {% if 'Usuarios.Permiso_Empleado' in perms %}  
+                              <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'Estadisticas' %}">Estadisticas </a>
+                              </li>
+                              {% if request.user.is_authenticated %}  
                               <li class="nav-item">
                                  <a class="nav-link" href="{% url 'perfil' %}">Ver Perfil </a>
                               </li>
                               {% endif %}
+                     
                                  <form action="/libros/" method="get" class="bottom_form">
                                  <input type="text" name="prd">
                                  <input type="submit" value="Buscar">
                                </form>
-                              {% if 'Usuarios.Permiso_Empleado' in perms %}  
+                              {% if request.user.is_authenticated %}  
                               <li class=" d_none get_btn">
                                  <a  href="{% url 'logout' %}">Cerrar Sesión</a>
                               </li> 
+                           
                               {% else  %}                           
                               <li class=" d_none get_btn">
                                  <a  href="{% url 'Usuarios' %}">Usuarios</a>
                               </li>
                               {% endif %}
+                              
                            </ul>
                         </div>
                      </nav>

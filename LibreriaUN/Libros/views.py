@@ -9,10 +9,11 @@ from .forms import BookForm
 def Libros(request):
   if(request.GET["prd"]):   
     search = request.GET["prd"]
-    libros = Libro.objects.filter(nombre__icontains=search)
+    libros = Libro.objects.filter(nombre__icontains=search).order_by("-likes")
     return render(request, "Libros/libros.html", {"libros": libros})
   else:
-    libros = Libro.objects.all()
+    libros = Libro.objects.all().order_by("-likes")
+    
     return render(request, "Libros/libros.html", {"libros": libros})
 
 @permission_required('Usuarios.Permiso_Empleado', login_url="../login")  # type: ignore

@@ -9,23 +9,33 @@ from .forms import PresForm
 
 @permission_required('Usuarios.Permiso_Empleado', login_url="../login")  # type: ignore
 def RealizarPrestamo(request):
-  if request.method == 'POST':
-    form = PresForm(request.POST,id=request.user.id)
-    if form.is_valid():
-      prestamo = form.save()
-      libro = Libro.objects.get(pk=prestamo.libro.pk)
-      libro.estado = 'N'
-      libro.save(update_fields=['estado'])
-      return redirect('/')
-  else:
-    form = PresForm(id=request.user.id)
-  return render(request, "Prestamos/prestamo.html", {"form":form})
+  if not request.user.is_superuser:
+    if request.method == 'POST':
+      form = PresForm(request.POST,id=request.user.id)
+      if form.is_valid():
+        prestamo = form.save()
+        libro = Libro.objects.get(pk=prestamo.libro.pk)
+        libro.estado = 'N'
+        libro.save(update_fields=['estado'])
+        return redirect('/')
+    else:
+      form = PresForm(id=request.user.id)
+    return render(request, "Prestamos/prestamo.html", {"form":form})
+  return redirect('/')
+#def ():
 
 
+#@permission_required('Usuarios.Permiso_Cliente', login_url="../login")  # type: ignore
 def MisPrestamos(request):
   if(request.user.is_authenticated):
-    cliente = Cliente.objects.get(usuario=request.user.id)
-    prestamos = Prestamo.objects.filter(cliente=cliente.pk)
+    try:
+      cliente = Cliente.objects.get(usuario=request.user.id)
+    except:
+      cliente = None
+    if(cliente == None):
+      prestamos =Prestamo.objects.all()
+    else:
+      prestamos = Prestamo.objects.filter(cliente=cliente.pk)
     return render(request, "Prestamos/misprestamos.html", {"prestamos":prestamos})
   else:
     return redirect("/usuarios/login/")
