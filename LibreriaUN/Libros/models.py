@@ -2,6 +2,7 @@ from distutils.command.upload import upload
 from email.policy import default
 from django.db import models
 import datetime
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -33,7 +34,7 @@ class Libro(models.Model):
     autor = models.CharField(max_length=50)
     año = models.IntegerField(choices=AÑOS)
     descripcion = models.CharField(max_length=1000)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default=0)
     imagen = models.ImageField(upload_to='libros')
 
     class Meta:

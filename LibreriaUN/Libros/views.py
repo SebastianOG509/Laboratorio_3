@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import permission_required
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
 from .models import Libro,Genero
 from .forms import BookForm
@@ -47,3 +47,12 @@ def ActualizarLibro(request,libro_id):
   else:
     form = BookForm(instance=libro)
   return render(request, "Libros/actualizar.html", {"form": form})
+
+def darlike(request, pk):
+  libro = get_object_or_404(Libro, id = pk)
+  libro.likes.add(request.user.id)
+  
+
+
+
+
